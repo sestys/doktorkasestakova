@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUDr. Ivana Šestáková - Praktický lékař</title>
+    <meta name="description" content="Ordinace praktického lékaře pro dospělé v Praze. Poskytujeme komplexní zdravotní péči, preventivní prohlídky a očkování.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="vacation-popup" class="popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <h3>Dovolená </h3>
+            <p>Vážení pacienti,</p>
+            <p>dovoluji si Vás informovat, že ordinace bude z důvodu dovolené uzavřena ve dnech <strong>7.3. (pátek) až 17.3.2025 (pondělí)</strong>.</p>
+            <p>Akutní neodkladnou péči Vám po předchozí telefonické domluvě zajistí lékařka v ordinaci Mediclinic v Milíně.</p>
+            <p>Telefon: <a href="tel:+420318691123">318 691 123</a></p>
+            <p>Email: <a href="mailto:praktik1-Milin@ordinace.mediclinic.cz">praktik1-Milin@ordinace.mediclinic.cz</a></p>
+            <p>Pokud se obracíte na zastupující lékařku, mějte vždy k dispozici své rodné číslo, číslo pojišťovny, názvy a síly léků, které užíváte.</p>
+            <p>Během dovolené se můžete s objednávkami obracet i na zdravotní sestru paní Macounovou na telefonu <a href="tel:+420725875487">725 875 487</a>. Tyto objednávky budou vyřízeny po 18.3.</p>
+            <p>Děkuji za pochopení.</p>
+        </div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <div class="logo-container">
+                <img src="images/logo.svg" alt="Logo ordinace" class="logo">
+                <div class="logo-text">
+                    <h1>MUDr. Ivana Šestáková</h1>
+                    <p>Praktický lékař pro dospělé</p>
+                </div>
+            </div>
+            <nav>
+                <button class="mobile-menu-btn">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="#uvod" class="active">Úvod</a></li>
+                    <li><a href="#o-nas">O nás</a></li>
+                    <li><a href="#sluzby">Služby</a></li>
+                    <li><a href="#ordinacni-hodiny">Ordinační hodiny</a></li>
+                    <li><a href="#kontakt">Kontakt</a></li>
+                    <li><a href="cenik.html">Ceník</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="uvod" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Vítejte v naší ordinaci</h2>
+                <p>Poskytujeme komplexní zdravotní péči pro dospělé pacienty s důrazem na prevenci a individuální přístup.</p>
+                <div class="hero-buttons">
+                    <a href="#kontakt" class="btn btn-primary">Objednat se</a>
+                    <!-- <a href="tel:+420607629617" class="btn btn-secondary"><i class="fas fa-phone"></i> +420 607 629 617</a> -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="o-nas" class="about">
+        <div class="container">
+            <h2 class="section-title">O naší ordinaci</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/ivana_headshot.png" alt="MUDr. Ivana Šestáková">
+                </div>
+                <div class="about-text">
+                    <h3>MUDr. Ivana Šestáková</h3>
+                    <p class="subtitle">Praktický lékař pro dospělé</p>
+                    <p>Jsem absolventkou 1. lékařské fakulty Univerzity Karlovy v Praze. Po promoci jsem pracovala na interním oddělení Masarykovy nemocnice v Ústí nad Labem a Fakultní nemocnice v Motole, kde jsem získala cenné zkušenosti v diagnostice a léčbě interních onemocnění.</p>
+                    <p>V roce 2002 jsem složila atestaci v oboru všeobecné praktické lékařství a od té doby se věnuji péči o pacienty v rámci vlastní praxe.</p>
+                    <p>Pravidelně se účastním odborných konferencí a vzdělávacích akcí, abych svým pacientům mohla poskytovat péči na nejvyšší úrovni podle nejnovějších medicínských poznatků.</p>
+                    <div class="doctor-credentials">
+                        <div class="credential">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Atestace z všeobecného praktického lékařství</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-certificate"></i>
+                            <span>Člen České lékařské komory</span>
+                        </div>
+                        <div class="credential">
+                            <i class="fas fa-user-md"></i>
+                            <span>30+ let praxe</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sluzby" class="services">
+        <div class="container">
+            <h2 class="section-title">Naše služby</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-stethoscope"></i>
+                    </div>
+                    <h3>Preventivní prohlídky</h3>
+                    <p>Pravidelné preventivní prohlídky pomáhají včas odhalit zdravotní problémy a předcházet závažným onemocněním.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-syringe"></i>
+                    </div>
+                    <h3>Očkování</h3>
+                    <p>Provádíme očkování proti chřipce, klíšťové encefalitidě, pneumokokovým infekcím a další očkování dle potřeby.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>EKG vyšetření</h3>
+                    <p>Elektrokardiografické vyšetření srdce pro diagnostiku poruch srdečního rytmu a ischemické choroby srdeční.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-flask"></i>
+                    </div>
+                    <h3>Odběry krve</h3>
+                    <p>Provádíme odběry biologického materiálu pro laboratorní vyšetření přímo v naší ordinaci.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-file-medical"></i>
+                    </div>
+                    <h3>Pracovnělékařské služby</h3>
+                    <p>Zajišťujeme vstupní, periodické a výstupní prohlídky pro zaměstnance firem.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Návštěvní služba</h3>
+                    <p>Pro imobilní pacienty a v akutních případech poskytujeme návštěvní službu v domácím prostředí.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="ordinacni-hodiny" class="hours">
+        <div class="container">
+            <h2 class="section-title">Ordinační hodiny</h2>
+            <div class="hours-container">
+                <div class="location-hours">
+                    <h3 class="location-title">Solenice</h3>
+                    <table class="hours-table">
+                        <tr>
+                            <td>Pondělí</td>
+                            <td>7:30 - 13:00</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Úterý</td>
+                            <td>-</td>
+                            <td>14:00 - 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>Středa</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Čtvrtek</td>
+                            <td>7:30 - 14:00</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Pátek</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                    <p class="hours-note"><i class="fas fa-info-circle"></i> Odběry krve: čtvrtek 7:30 - 9:00</p>
+                </div>
+                
+                <div class="location-hours">
+                    <h3 class="location-title">Kozárovice</h3>
+                    <table class="hours-table">
+                        <tr>
+                            <td>Pondělí</td>
+                            <td>-</td>
+                            <td>14:00 - 17:00</td>
+                        </tr>
+                        <tr>
+                            <td>Úterý</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Středa</td>
+                            <td>7:30 - 13:00</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Čtvrtek</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Pátek</td>
+                            <td>7:30 - 13:00</td>
+                            <td>-</td>
+                        </tr>
+                    </table>
+                    <p class="hours-note"><i class="fas fa-info-circle"></i> Odběry krve: středa 7:30 - 9:00</p>
+                </div>
+            </div>
+            
+            <div class="hours-additional-info">
+                <div class="info-item">
+                    <i class="fas fa-calendar-check"></i>
+                    <p>Všechny pacienty objednávám na konkrétní dobu</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <p>Pro Váš termín návštěvy ordinace si předem zavolejte, pošlete SMS nebo email.</p>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <p>Akutní případy ošetřujeme přednostně během celé ordinační doby.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="kontakt" class="contact">
+        <div class="container">
+            <h2 class="section-title">Kontakt</h2>
+            
+            <div class="central-contact">
+                <div class="contact-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div>
+                        <h3>Telefon</h3>
+                        <p><a href="tel:+420607629617">+420 607 629 617</a></p>
+                        <p><a href="tel:+420725875487">+420 725 875 487</a></p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <h3>E-mail</h3>
+                        <p><a href="mailto:sestakova.ivana@seznam.cz ">sestakova.ivana@seznam.cz </a></p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="locations-container">
+                <div class="location-contact">
+                    <h3 class="location-title">Solenice</h3>
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3>Adresa</h3>
+                                    <p><b>Ordinace v budově Obecního úřadu Solenice, vedle pošty</b></p>
+                                    <p>Solenice 37</p>
+                                    <p>26263</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d646.290957857605!2d14.194380539064294!3d49.613515946680856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b6dc392fba53b%3A0xe5917aa3fa53a641!2zT3JkaW5hY2UgcHJha3QuIGzDqWthxZllIHBybyBkb3NwxJtsw6k!5e0!3m2!1sen!2sau!4v1741391830262!5m2!1sen!2sau" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="location-contact">
+                    <h3 class="location-title">Kozárovice</h3>
+                    <div class="contact-container">
+                        <div class="contact-info">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3>Adresa</h3>
+                                    <p><b>Ordinace v budově Obecního úřadu Kozárovice</b></p>
+                                    <p>Kozárovice 181</p>
+                                    <p>26284</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="contact-map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2588.0941011649147!2d14.1100048!3d49.5582476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b6ba6f8518501%3A0xe6aefccab07e21c1!2zTVVEci4gSXZhbmEgxaBlc3TDoWtvdsOh!5e0!3m2!1sen!2sau!4v1741391289713!5m2!1sen!2sau" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="emergency-info">
+                <div class="contact-item">
+                    <i class="fas fa-ambulance"></i>
+                    <div>
+                        <h3>Pohotovost</h3>
+                        <p>V případě ohrožení života volejte <a href="tel:155">155</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="insurance">
+        <div class="container">
+            <h2 class="section-title">Spolupracujeme se zdravotními pojišťovnami</h2>
+            <div class="insurance-logos">
+                <div class="logo-item">
+                    <img src="images/vzp.png" alt="VZP - Všeobecné zdravotní pojištění">
+                </div>
+                <div class="logo-item">
+                    <img src="images/vozp.png" alt="VOZP - Vojenské zdravotní pojištění">
+                </div>
+                <div class="logo-item">
+                    <img src="images/cpzp.png" alt="ČPZP - Česká průmyslová zdravotní pojišťovna">
+                </div>
+                <div class="logo-item">
+                    <img src="images/ozp.png" alt="OZP - Oborová zdravotní pojišťovna">
+                </div>
+                <div class="logo-item">
+                    <img src="images/zpmv.png" alt="ZPMV - Zdravotní pojišťovna Ministerstva vnitra">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.svg" alt="Logo ordinace" class="logo">
+                    <div class="logo-text">
+                        <h3>MUDr. Ivana Šestáková</h3>
+                        <p>Praktický lékař pro dospělé</p>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h3>Rychlé odkazy</h3>
+                    <ul>
+                        <li><a href="#uvod">Úvod</a></li>
+                        <li><a href="#o-nas">O nás</a></li>
+                        <li><a href="#sluzby">Služby</a></li>
+                        <li><a href="#ordinacni-hodiny">Ordinační hodiny</a></li>
+                        <li><a href="#kontakt">Kontakt</a></li>
+                        <li><a href="cenik.html">Ceník</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3>Kontaktní informace</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> Solenice 37, 26263 | Kozárovice 181, 26284</p>
+                    <p><i class="fas fa-phone-alt"></i> <a href="tel:+420607629617">+420 607 629 617</a></p>
+                    <p><i class="fas fa-envelope"></i> <a href="mailto:sestakova.ivana@seznam.cz">sestakova.ivana@seznam.cz</a></p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 MUDr. Ivana Šestáková - Všechna práva vyhrazena</p>
+                <p>Vytvořeno s <i class="fas fa-heart"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html> 

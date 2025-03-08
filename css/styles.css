@@ -134,6 +134,18 @@ header {
     align-items: center;
 }
 
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+}
+
+.logo-link:hover {
+    opacity: 0.9;
+}
+
 .logo {
     width: 60px;
     height: 60px;
@@ -618,6 +630,11 @@ footer {
 }
 
 .footer-logo {
+    display: flex;
+    align-items: center;
+}
+
+.footer-logo .logo-link {
     display: flex;
     align-items: center;
 }

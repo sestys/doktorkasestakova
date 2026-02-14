@@ -171,6 +171,13 @@ function formatDateRange(startStr, endStr) {
     return startFormatted + ' až ' + endFormatted;
 }
 
+function linkifyPhoneNumbers(str) {
+    return str.replace(/(\d{3})\s(\d{3})\s(\d{3})/g, function(match, a, b, c) {
+        var digits = a + b + c;
+        return '<a href="tel:+420' + digits + '">' + match + '</a>';
+    });
+}
+
 function renderPopup(config) {
     var container = document.getElementById('vacation-popup');
     if (!container) return;
@@ -181,7 +188,7 @@ function renderPopup(config) {
     if (config.substituteDoctor && config.substituteDoctor.trim()) {
         substituteHtml =
             '<p>Akutní neodkladnou péči Vám po předchozí telefonické domluvě zajistí ' +
-            escapeHtml(config.substituteDoctor) + '.</p>' +
+            linkifyPhoneNumbers(escapeHtml(config.substituteDoctor)) + '.</p>' +
             '<p>Pokud se obracíte na zastupující lékařku, mějte vždy k dispozici ' +
             'své rodné číslo, číslo pojišťovny, názvy a síly léků, které užíváte.</p>';
     }

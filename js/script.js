@@ -99,47 +99,151 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Current year for copyright
     const yearElement = document.querySelector('.footer-bottom p');
-    if (yearElement && yearElement.textContent.includes('2023')) {
+    if (yearElement && yearElement.textContent.includes('2025')) {
         const currentYear = new Date().getFullYear();
-        if (currentYear !== 2023) {
-            yearElement.textContent = yearElement.textContent.replace('2023', currentYear);
+        if (currentYear !== 2025) {
+            yearElement.textContent = yearElement.textContent.replace('2025', currentYear);
         }
     }
     
     // Vacation Popup
-    const vacationPopup = document.getElementById('vacation-popup');
-    const closePopupBtn = document.querySelector('.close-popup');
-    
-    if (vacationPopup) {
-        // Show popup with a slight delay for better user experience
-        setTimeout(() => {
-            vacationPopup.classList.add('show');
-        }, 500);
-        
-        // Close popup when clicking the close button
-        if (closePopupBtn) {
-            closePopupBtn.addEventListener('click', () => {
-                vacationPopup.classList.remove('show');
-                
-                // Hide popup completely after transition
-                setTimeout(() => {
-                    vacationPopup.style.display = 'none';
-                }, 300);
-            });
-        }
-        
-        // Close popup when clicking outside of it
-        vacationPopup.addEventListener('click', (e) => {
-            if (e.target === vacationPopup) {
-                closePopupBtn.click();
-            }
-        });
-        
-        // Close popup with Escape key
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && vacationPopup.classList.contains('show')) {
-                closePopupBtn.click();
-            }
-        });
+    initVacationPopup();
+});
+
+function getTodayString() {
+    const now = new Date();
+    return now.getFullYear() + '-' +
+        String(now.getMonth() + 1).padStart(2, '0') + '-' +
+        String(now.getDate()).padStart(2, '0');
+}
+
+function shouldShowPopup(config, today) {
+    if (!config.enabled) return false;
+    if (!config.vacationStart || !config.vacationEnd) return false;
+
+    var dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+    if (!dateRegex.test(config.vacationStart) || !dateRegex.test(config.vacationEnd)) return false;
+    if (config.vacationEnd < config.vacationStart) return false;
+
+    var parts = config.vacationStart.split('-');
+    var startDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    startDate.setDate(startDate.getDate() - 14);
+    var showFrom = startDate.getFullYear() + '-' +
+        String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
+        String(startDate.getDate()).padStart(2, '0');
+
+    return today >= showFrom && today <= config.vacationEnd;
+}
+
+function escapeHtml(str) {
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
+function formatCzechDate(dateStr) {
+    var parts = dateStr.split('-');
+    var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+    var day = date.getDate();
+    var month = date.getMonth() + 1;
+    var year = date.getFullYear();
+    var weekday = date.toLocaleDateString('cs-CZ', { weekday: 'long' });
+    return day + '.' + month + '. (' + weekday + ') ' + year;
+}
+
+function formatDateRange(startStr, endStr) {
+    var startParts = startStr.split('-');
+    var endParts = endStr.split('-');
+    var startDate = new Date(Number(startParts[0]), Number(startParts[1]) - 1, Number(startParts[2]));
+    var endDate = new Date(Number(endParts[0]), Number(endParts[1]) - 1, Number(endParts[2]));
+
+    var startDay = startDate.getDate();
+    var startMonth = startDate.getMonth() + 1;
+    var startWeekday = startDate.toLocaleDateString('cs-CZ', { weekday: 'long' });
+
+    var endDay = endDate.getDate();
+    var endMonth = endDate.getMonth() + 1;
+    var endYear = endDate.getFullYear();
+    var endWeekday = endDate.toLocaleDateString('cs-CZ', { weekday: 'long' });
+
+    var startFormatted = startDay + '.' + startMonth + '. (' + startWeekday + ')';
+    var endFormatted = endDay + '.' + endMonth + '.' + endYear + ' (' + endWeekday + ')';
+
+    if (startParts[0] !== endParts[0]) {
+        startFormatted = startDay + '.' + startMonth + '.' + startParts[0] + ' (' + startWeekday + ')';
     }
-}); 
+
+    return startFormatted + ' až ' + endFormatted;
+}
+
+function renderPopup(config) {
+    var container = document.getElementById('vacation-popup');
+    if (!container) return;
+
+    var dateRange = formatDateRange(config.vacationStart, config.vacationEnd);
+
+    var substituteHtml = '';
+    if (config.substituteDoctor && config.substituteDoctor.trim()) {
+        substituteHtml =
+            '<p>Akutní neodkladnou péči Vám po předchozí telefonické domluvě zajistí ' +
+            escapeHtml(config.substituteDoctor) + '.</p>' +
+            '<p>Pokud se obracíte na zastupující lékařku, mějte vždy k dispozici ' +
+            'své rodné číslo, číslo pojišťovny, názvy a síly léků, které užíváte.</p>';
+    }
+
+    container.innerHTML =
+        '<div class="popup-content" role="dialog" aria-modal="true">' +
+            '<span class="close-popup" aria-label="Zavřít">&times;</span>' +
+            '<h3>Dovolená</h3>' +
+            '<p>Vážení pacienti,</p>' +
+            '<p>dovoluji si Vás informovat, že ordinace bude z důvodu dovolené ' +
+            'uzavřena ve dnech <strong>' + dateRange + '</strong>.</p>' +
+            substituteHtml +
+            '<p>Během dovolené se můžete s objednávkami obracet i na zdravotní sestru ' +
+            'paní Macounovou na telefonu <a href="tel:+420725875487">725 875 487</a>.</p>' +
+            '<p>Děkuji za pochopení.</p>' +
+        '</div>';
+
+    setTimeout(function() {
+        container.classList.add('show');
+    }, 500);
+
+    var closeBtn = container.querySelector('.close-popup');
+
+    function closePopup() {
+        container.classList.remove('show');
+        setTimeout(function() {
+            container.style.display = 'none';
+        }, 300);
+    }
+
+    if (closeBtn) {
+        closeBtn.addEventListener('click', closePopup);
+    }
+
+    container.addEventListener('click', function(e) {
+        if (e.target === container) {
+            closePopup();
+        }
+    });
+
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && container.classList.contains('show')) {
+            closePopup();
+        }
+    });
+}
+
+async function initVacationPopup() {
+    try {
+        var response = await fetch('vacation.json', { cache: 'no-cache' });
+        if (!response.ok) return;
+        var config = await response.json();
+
+        if (!shouldShowPopup(config, getTodayString())) return;
+
+        renderPopup(config);
+    } catch (e) {
+        // Silent failure — no popup is better than a broken page
+    }
+}

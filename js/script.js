@@ -141,16 +141,6 @@ function escapeHtml(str) {
     return div.innerHTML;
 }
 
-function formatCzechDate(dateStr) {
-    var parts = dateStr.split('-');
-    var date = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-    var day = date.getDate();
-    var month = date.getMonth() + 1;
-    var year = date.getFullYear();
-    var weekday = date.toLocaleDateString('cs-CZ', { weekday: 'long' });
-    return day + '.' + month + '. (' + weekday + ') ' + year;
-}
-
 function formatDateRange(startStr, endStr) {
     var startParts = startStr.split('-');
     var endParts = endStr.split('-');

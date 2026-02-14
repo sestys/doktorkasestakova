@@ -125,12 +125,17 @@ function shouldShowPopup(config, today) {
     if (!dateRegex.test(config.vacationStart) || !dateRegex.test(config.vacationEnd)) return false;
     if (config.vacationEnd < config.vacationStart) return false;
 
-    var parts = config.vacationStart.split('-');
-    var startDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
-    startDate.setDate(startDate.getDate() - 14);
-    var showFrom = startDate.getFullYear() + '-' +
-        String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
-        String(startDate.getDate()).padStart(2, '0');
+    var showFrom;
+    if (config.showFrom && dateRegex.test(config.showFrom)) {
+        showFrom = config.showFrom;
+    } else {
+        var parts = config.vacationStart.split('-');
+        var startDate = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
+        startDate.setDate(startDate.getDate() - 14);
+        showFrom = startDate.getFullYear() + '-' +
+            String(startDate.getMonth() + 1).padStart(2, '0') + '-' +
+            String(startDate.getDate()).padStart(2, '0');
+    }
 
     return today >= showFrom && today <= config.vacationEnd;
 }

@@ -1,7 +1,7 @@
 {
   "_instructions": "Set enabled to true and update dates (format: YYYY-MM-DD). Do not remove quotes or commas. Changes take 5-15 min to appear on the live site.",
   "enabled": true,
-  "vacationStart": "2026-03-26",
-  "vacationEnd": "2026-04-02",
+  "vacationStart": "2026-06-22",
+  "vacationEnd": "2026-06-26",
   "substituteDoctor": "lékařka v ordinaci Mediclinic v Milíně, tel. 318 691 123, email praktik1-Milin@ordinace.mediclinic.cz"
 }

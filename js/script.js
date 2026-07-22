@@ -203,8 +203,7 @@ function renderPopup(config) {
             substituteHtml +
             '<p>Děkuji za pochopení.</p>' +
             '<p>Od 27. 7. se můžete s objednávkami obracet i na zdravotní sestru ' +
-            'paní Macounovou na telefonu <a href="tel:+420725875487">725 875 487</a>. ' +
-            'Tyto objednávky budou vyřízeny nejdříve 3. 8.</p>' +
+            'paní Macounovou na telefonu <a href="tel:+420725875487">725 875 487</a>.</p>' +
         '</div>';
 
     setTimeout(function() {

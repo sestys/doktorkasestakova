@@ -202,8 +202,6 @@ function renderPopup(config) {
             'uzavřena ve dnech <strong>' + dateRange + '</strong>.</p>' +
             substituteHtml +
             '<p>Děkuji za pochopení.</p>' +
-            '<p>Od 27. 7. se můžete s objednávkami obracet i na zdravotní sestru ' +
-            'paní Macounovou na telefonu <a href="tel:+420725875487">725 875 487</a>.</p>' +
         '</div>';
 
     setTimeout(function() {
